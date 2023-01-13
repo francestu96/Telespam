@@ -1,0 +1,31 @@
+{
+  "full_hd": {
+    "title_pos": {
+      "x": 1062, 
+      "y": 185
+    },
+    "scroll_value_init": -670,
+    "group_pos": {
+      "x": 1700, 
+      "y": 540
+    },
+    "scroll_value": -67,
+    "username_pos": {
+      "x": 769, 
+      "y": 642
+    },
+    "username_bold_pos": {
+      "x": 673, 
+      "y": 587
+    },
+    "button_offset": 87,
+    "password_pos": {
+      "x": 757, 
+      "y": 748
+    },
+    "password_bold_pos": {
+      "x": 675, 
+      "y": 695
+    }
+  }
+}
