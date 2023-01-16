@@ -7,12 +7,17 @@ import time
 import sys
 import re
 
-def write_message(username):
-  pya.write("Hi " + username + "!", interval=0.001)
+def write_message(username, name):
+  pya.write("Hi " + name + "!", interval=0.001)
   pya.keyDown('shift')
   pya.hotkey('enter')
   pya.keyUp('shift')
   pya.write("You requested for a password reset for you account via Telegram.", interval=0.001)
+  pya.keyDown('shift')
+  pya.hotkey('enter')
+  pya.hotkey('enter')
+  pya.keyUp('shift')
+  pya.write("Your Telegram ID: " + username, interval=0.001)
   pya.keyDown('shift')
   pya.hotkey('enter')
   pya.keyUp('shift')
@@ -89,14 +94,33 @@ for _ in range(int(sys.argv[1])):
     pya.moveTo(at, duration=0.1)
     pya.click()
 
-    username = pyperclip.paste()[:-1]
-    registration = requests.post(URL + "/api/register", {"name": re.sub('[1-9]', '', username), "telegramId": username, "password": PASSWORD })
+    username = pyperclip.paste()
 
-    if registration.status_code != 200:
-      raise Exception("Cannot register new Users!")
+    try:
+      name_match = re.search("[A-Z][a-z]+", username)
+      if(not name_match):
+        name_match = re.search("[a-z]+", username)
 
-    write_message(username)
-    # pya.press('enter')
+      name = name_match.group()
+      if(len(name) < 3):
+        name += "96"
+
+      print(name + " " + username)
+      print(name == username)
+
+      if name == username:
+        name = username[0:3]
+
+      registration = requests.post(URL + "/api/register", {"name": name.capitalize(), "telegramId": username, "password": PASSWORD })
+
+      if registration.status_code != 200:
+        raise Exception(registration.text)
+
+      write_message(username, name)
+      # pya.press('enter')
+    except Exception as e:
+      print("Exception for username: " + username)
+      print(e)
 
   back = pya.locateCenterOnScreen('back.png', grayscale=True, confidence=0.78)
 
