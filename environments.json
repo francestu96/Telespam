@@ -1,31 +1,31 @@
 {
-  "full_hd": {
+  "full_hd-125x": {
     "title_pos": {
-      "x": 1062, 
-      "y": 185
+      "x": 577, 
+      "y": 165
     },
-    "scroll_value_init": -670,
+    "scroll_value_init": -765,
     "group_pos": {
-      "x": 1700, 
-      "y": 540
+      "x": 1663, 
+      "y": 380
     },
     "scroll_value": -67,
     "username_pos": {
-      "x": 797, 
-      "y": 592
+      "x": 649, 
+      "y": 661
     },
     "username_bold_pos": {
-      "x": 673, 
-      "y": 538
+      "x": 569, 
+      "y": 609
     },
     "button_offset": 87,
     "password_pos": {
-      "x": 757, 
-      "y": 748
+      "x": 654, 
+      "y": 794
     },
     "password_bold_pos": {
-      "x": 675, 
-      "y": 695
+      "x": 570, 
+      "y": 741
     }
   }
 }

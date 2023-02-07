@@ -66,7 +66,7 @@ def write_message(username, name):
 
 parser = argparse.ArgumentParser(prog='Telespam', description='Spam messages on Telegram')
 parser.add_argument('chats', type=int, help='how many chats spam the message to')
-parser.add_argument('-e', '--env', default="full_hd", help='the resolution of the screen')
+parser.add_argument('-e', '--env', default="full_hd-125x", help='the resolution of the screen')
 args = parser.parse_args()
 
 URL = "https://protoncash.vercel.app"
@@ -104,9 +104,6 @@ for _ in range(int(sys.argv[1])):
       name = name_match.group()
       if(len(name) < 3):
         name += "96"
-
-      print(name + " " + username)
-      print(name == username)
 
       if name == username:
         name = username[0:3]
